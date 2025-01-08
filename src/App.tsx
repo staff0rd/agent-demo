@@ -46,67 +46,66 @@ function App() {
               animation: `${rotate} 40s linear infinite`,
               width: '300px',
               height: '300px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
             }}
           >
             <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-              {/* Main body - more rounded like Spot */}
+              {/* Face */}
+              <circle cx="50" cy="50" r="30" fill="#000000"/>
+              
+              {/* Ears */}
+              <circle cx="25" cy="25" r="15" fill="#000000"/>
+              <circle cx="75" cy="25" r="15" fill="#000000"/>
+              
+              {/* Face area */}
               <path 
-                d="M 20 50 
-                   Q 20 30 40 30 
-                   L 70 30 
-                   Q 90 30 90 50
-                   Q 90 70 70 70
-                   L 40 70
-                   Q 20 70 20 50"
+                d="M 35 40 
+                   Q 50 65 65 40" 
                 fill="none" 
-                stroke="currentColor" 
-                strokeWidth="2"
-                strokeLinejoin="round"
+                stroke="#FFFFFF" 
+                strokeWidth="3"
               />
               
-              {/* Head - characteristic side view */}
-              <path 
-                d="M 70 30
-                   Q 85 30 85 45
-                   Q 85 60 70 60
-                   Q 55 60 55 45
-                   Q 55 30 70 30"
-                fill="none" 
-                stroke="currentColor" 
-                strokeWidth="2"
-              />
-              
-              {/* Ear */}
-              <path 
-                d="M 75 35
-                   Q 85 25 80 40"
-                fill="none" 
-                stroke="currentColor" 
-                strokeWidth="2"
-              />
-              
-              {/* Eye */}
-              <circle cx="75" cy="45" r="2" fill="currentColor"/>
+              {/* Eyes */}
+              <ellipse cx="40" cy="45" rx="8" ry="12" fill="#FFFFFF"/>
+              <ellipse cx="60" cy="45" rx="8" ry="12" fill="#FFFFFF"/>
+              <circle cx="43" cy="48" r="3" fill="#000000"/>
+              <circle cx="63" cy="48" r="3" fill="#000000"/>
               
               {/* Nose */}
-              <circle cx="82" cy="50" r="2" fill="currentColor"/>
+              <ellipse cx="50" cy="52" rx="5" ry="3" fill="#FFFFFF"/>
               
-              {/* Spots - characteristic round spots */}
-              <circle cx="35" cy="45" r="6" fill="none" stroke="currentColor" strokeWidth="1.5"/>
-              <circle cx="55" cy="55" r="5" fill="none" stroke="currentColor" strokeWidth="1.5"/>
-              
-              {/* Simple tail */}
+              {/* Mouth */}
               <path 
-                d="M 20 50
-                   Q 10 50 15 40" 
+                d="M 35 58 
+                   Q 50 65 65 58" 
                 fill="none" 
-                stroke="currentColor" 
-                strokeWidth="2"
+                stroke="#FFFFFF" 
+                strokeWidth="3"
+              />
+
+              {/* Classic pie-cut eyes */}
+              <path 
+                d="M 35 45 
+                   L 45 45" 
+                stroke="#000000" 
+                strokeWidth="1"
+              />
+              <path 
+                d="M 55 45 
+                   L 65 45" 
+                stroke="#000000" 
+                strokeWidth="1"
               />
               
-              {/* Legs - simple lines like in the books */}
-              <line x1="35" y1="70" x2="35" y2="85" stroke="currentColor" strokeWidth="2"/>
-              <line x1="75" y1="70" x2="75" y2="85" stroke="currentColor" strokeWidth="2"/>
+              {/* Classic details */}
+              <line x1="48" y1="52" x2="52" y2="52" stroke="#000000" strokeWidth="1"/>
+              
+              {/* White circles at ear bases for classic look */}
+              <circle cx="25" cy="30" r="3" fill="#FFFFFF"/>
+              <circle cx="75" cy="30" r="3" fill="#FFFFFF"/>
             </svg>
           </Box>
 
