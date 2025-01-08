@@ -37,6 +37,7 @@ const DogFact = () => {
         flexDirection: 'column', 
         alignItems: 'center',
         gap: 3,
+        width: '100%',
         maxWidth: '600px',
         mx: 'auto',
         p: 3,
@@ -49,21 +50,32 @@ const DogFact = () => {
         Random Dog Fact
       </Typography>
       
-      {loading ? (
-        <CircularProgress size={24} color="primary" />
-      ) : error ? (
-        <Typography color="error">{error}</Typography>
-      ) : (
-        <Typography 
-          variant="body1" 
-          sx={{ 
-            textAlign: 'center',
-            lineHeight: 1.6,
-          }}
-        >
-          {fact}
-        </Typography>
-      )}
+      <Box sx={{ 
+        minHeight: '80px',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        width: '100%',
+        transition: 'all 0.3s ease-in-out'
+      }}>
+        {loading ? (
+          <CircularProgress size={24} color="primary" />
+        ) : error ? (
+          <Typography color="error">{error}</Typography>
+        ) : (
+          <Typography 
+            variant="body1" 
+            sx={{ 
+              textAlign: 'center',
+              lineHeight: 1.6,
+              opacity: loading ? 0 : 1,
+              transition: 'opacity 0.3s ease-in-out'
+            }}
+          >
+            {fact}
+          </Typography>
+        )}
+      </Box>
 
       <Button
         variant="contained"
