@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Box, Button, Typography, CircularProgress } from '@mui/material';
-import { PawPrint } from 'lucide-react';
+import { Paw } from 'lucide-react';
 
 interface DogFact {
   facts: string[];
@@ -45,7 +45,7 @@ const DogFact = () => {
       }}
     >
       <Typography variant="h6" color="primary" sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-        <PawPrint size={24} />
+        <Paw size={24} />
         Random Dog Fact
       </Typography>
       
@@ -69,7 +69,7 @@ const DogFact = () => {
         variant="contained"
         onClick={fetchDogFact}
         disabled={loading}
-        startIcon={<PawPrint size={16} />}
+        startIcon={<Paw size={16} />}
         sx={{
           textTransform: 'none',
           mt: 2
