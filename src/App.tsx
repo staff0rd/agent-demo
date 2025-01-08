@@ -43,51 +43,42 @@ function App() {
 
           <Box
             sx={{
-              animation: `${rotate} 20s linear infinite`,
+              animation: `${rotate} 40s linear infinite`, // Doubled from 20s to 40s
               width: '300px',
               height: '300px',
             }}
           >
             <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-              <circle 
-                cx="50" 
-                cy="50" 
-                r="45" 
-                fill="none" 
-                stroke="currentColor" 
-                strokeWidth="1"
-                vectorEffect="non-scaling-stroke"
-              />
+              {/* Body */}
+              <circle cx="50" cy="55" r="30" fill="none" stroke="currentColor" strokeWidth="2"/>
               
-              <g opacity="0.7">
-                {[0, 60, 120].map((rotation) => (
-                  <path
-                    key={rotation}
-                    d="M50 5 L95 50 L50 95 L5 50 Z"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="0.5"
-                    vectorEffect="non-scaling-stroke"
-                    transform={`rotate(${rotation}, 50, 50)`}
-                  />
-                ))}
-              </g>
+              {/* Head */}
+              <circle cx="50" cy="25" r="15" fill="none" stroke="currentColor" strokeWidth="2"/>
               
-              <circle 
-                cx="50" 
-                cy="50" 
-                r="25" 
-                fill="none" 
-                stroke="currentColor"
-                strokeWidth="0.75"
-                vectorEffect="non-scaling-stroke"
-              />
-              <circle 
-                cx="50" 
-                cy="50" 
-                r="10" 
-                fill="currentColor"
-              />
+              {/* Ears */}
+              <path d="M40 15 L35 5 L45 15" fill="none" stroke="currentColor" strokeWidth="2"/>
+              <path d="M60 15 L65 5 L55 15" fill="none" stroke="currentColor" strokeWidth="2"/>
+              
+              {/* Eyes */}
+              <circle cx="45" cy="22" r="2" fill="currentColor"/>
+              <circle cx="55" cy="22" r="2" fill="currentColor"/>
+              
+              {/* Nose */}
+              <circle cx="50" cy="27" r="3" fill="currentColor"/>
+              
+              {/* Spots */}
+              <circle cx="35" cy="45" r="5" fill="none" stroke="currentColor" strokeWidth="1"/>
+              <circle cx="65" cy="60" r="7" fill="none" stroke="currentColor" strokeWidth="1"/>
+              <circle cx="45" cy="70" r="6" fill="none" stroke="currentColor" strokeWidth="1"/>
+              
+              {/* Tail */}
+              <path d="M75 45 Q85 35 80 25" fill="none" stroke="currentColor" strokeWidth="2"/>
+              
+              {/* Legs */}
+              <line x1="35" y1="85" x2="35" y2="95" stroke="currentColor" strokeWidth="2"/>
+              <line x1="45" y1="85" x2="45" y2="95" stroke="currentColor" strokeWidth="2"/>
+              <line x1="55" y1="85" x2="55" y2="95" stroke="currentColor" strokeWidth="2"/>
+              <line x1="65" y1="85" x2="65" y2="95" stroke="currentColor" strokeWidth="2"/>
             </svg>
           </Box>
 
