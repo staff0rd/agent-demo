@@ -43,42 +43,49 @@ function App() {
 
           <Box
             sx={{
-              animation: `${rotate} 40s linear infinite`, // Doubled from 20s to 40s
+              animation: `${rotate} 40s linear infinite`,
               width: '300px',
               height: '300px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
             }}
           >
-            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <svg 
+              viewBox="-10 -10 120 120" 
+              xmlns="http://www.w3.org/2000/svg"
+              style={{ width: '100%', height: '100%' }}
+            >
               {/* Body */}
-              <circle cx="50" cy="55" r="30" fill="none" stroke="currentColor" strokeWidth="2"/>
+              <circle cx="50" cy="55" r="35" fill="none" stroke="currentColor" strokeWidth="2"/>
               
               {/* Head */}
-              <circle cx="50" cy="25" r="15" fill="none" stroke="currentColor" strokeWidth="2"/>
+              <circle cx="50" cy="25" r="18" fill="none" stroke="currentColor" strokeWidth="2"/>
               
               {/* Ears */}
-              <path d="M40 15 L35 5 L45 15" fill="none" stroke="currentColor" strokeWidth="2"/>
-              <path d="M60 15 L65 5 L55 15" fill="none" stroke="currentColor" strokeWidth="2"/>
+              <path d="M35 15 Q30 5 40 15" fill="none" stroke="currentColor" strokeWidth="2"/>
+              <path d="M65 15 Q70 5 60 15" fill="none" stroke="currentColor" strokeWidth="2"/>
               
               {/* Eyes */}
-              <circle cx="45" cy="22" r="2" fill="currentColor"/>
-              <circle cx="55" cy="22" r="2" fill="currentColor"/>
+              <circle cx="43" cy="22" r="2.5" fill="currentColor"/>
+              <circle cx="57" cy="22" r="2.5" fill="currentColor"/>
               
               {/* Nose */}
-              <circle cx="50" cy="27" r="3" fill="currentColor"/>
+              <circle cx="50" cy="28" r="3.5" fill="currentColor"/>
               
               {/* Spots */}
-              <circle cx="35" cy="45" r="5" fill="none" stroke="currentColor" strokeWidth="1"/>
-              <circle cx="65" cy="60" r="7" fill="none" stroke="currentColor" strokeWidth="1"/>
-              <circle cx="45" cy="70" r="6" fill="none" stroke="currentColor" strokeWidth="1"/>
+              <circle cx="35" cy="45" r="8" fill="none" stroke="currentColor" strokeWidth="1.5"/>
+              <circle cx="65" cy="60" r="10" fill="none" stroke="currentColor" strokeWidth="1.5"/>
+              <circle cx="45" cy="70" r="9" fill="none" stroke="currentColor" strokeWidth="1.5"/>
               
-              {/* Tail */}
-              <path d="M75 45 Q85 35 80 25" fill="none" stroke="currentColor" strokeWidth="2"/>
+              {/* Tail - now more curved and playful */}
+              <path d="M80 50 Q95 40 90 25" fill="none" stroke="currentColor" strokeWidth="2.5"/>
               
-              {/* Legs */}
-              <line x1="35" y1="85" x2="35" y2="95" stroke="currentColor" strokeWidth="2"/>
-              <line x1="45" y1="85" x2="45" y2="95" stroke="currentColor" strokeWidth="2"/>
-              <line x1="55" y1="85" x2="55" y2="95" stroke="currentColor" strokeWidth="2"/>
-              <line x1="65" y1="85" x2="65" y2="95" stroke="currentColor" strokeWidth="2"/>
+              {/* Legs - slightly thicker and more spaced */}
+              <line x1="30" y1="85" x2="30" y2="100" stroke="currentColor" strokeWidth="2.5"/>
+              <line x1="43" y1="85" x2="43" y2="100" stroke="currentColor" strokeWidth="2.5"/>
+              <line x1="57" y1="85" x2="57" y2="100" stroke="currentColor" strokeWidth="2.5"/>
+              <line x1="70" y1="85" x2="70" y2="100" stroke="currentColor" strokeWidth="2.5"/>
             </svg>
           </Box>
 
