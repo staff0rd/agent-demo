@@ -43,51 +43,69 @@ function App() {
 
           <Box
             sx={{
-              animation: `${rotate} 20s linear infinite`,
+              animation: `${rotate} 40s linear infinite`,
               width: '300px',
               height: '300px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
             }}
           >
             <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-              <circle 
-                cx="50" 
-                cy="50" 
-                r="45" 
+              {/* Face */}
+              <circle cx="50" cy="50" r="30" fill="#000000"/>
+              
+              {/* Ears */}
+              <circle cx="25" cy="25" r="15" fill="#000000"/>
+              <circle cx="75" cy="25" r="15" fill="#000000"/>
+              
+              {/* Face area */}
+              <path 
+                d="M 35 40 
+                   Q 50 65 65 40" 
                 fill="none" 
-                stroke="currentColor" 
+                stroke="#FFFFFF" 
+                strokeWidth="3"
+              />
+              
+              {/* Eyes */}
+              <ellipse cx="40" cy="45" rx="8" ry="12" fill="#FFFFFF"/>
+              <ellipse cx="60" cy="45" rx="8" ry="12" fill="#FFFFFF"/>
+              <circle cx="43" cy="48" r="3" fill="#000000"/>
+              <circle cx="63" cy="48" r="3" fill="#000000"/>
+              
+              {/* Nose */}
+              <ellipse cx="50" cy="52" rx="5" ry="3" fill="#FFFFFF"/>
+              
+              {/* Mouth */}
+              <path 
+                d="M 35 58 
+                   Q 50 65 65 58" 
+                fill="none" 
+                stroke="#FFFFFF" 
+                strokeWidth="3"
+              />
+
+              {/* Classic pie-cut eyes */}
+              <path 
+                d="M 35 45 
+                   L 45 45" 
+                stroke="#000000" 
                 strokeWidth="1"
-                vectorEffect="non-scaling-stroke"
+              />
+              <path 
+                d="M 55 45 
+                   L 65 45" 
+                stroke="#000000" 
+                strokeWidth="1"
               />
               
-              <g opacity="0.7">
-                {[0, 60, 120].map((rotation) => (
-                  <path
-                    key={rotation}
-                    d="M50 5 L95 50 L50 95 L5 50 Z"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="0.5"
-                    vectorEffect="non-scaling-stroke"
-                    transform={`rotate(${rotation}, 50, 50)`}
-                  />
-                ))}
-              </g>
+              {/* Classic details */}
+              <line x1="48" y1="52" x2="52" y2="52" stroke="#000000" strokeWidth="1"/>
               
-              <circle 
-                cx="50" 
-                cy="50" 
-                r="25" 
-                fill="none" 
-                stroke="currentColor"
-                strokeWidth="0.75"
-                vectorEffect="non-scaling-stroke"
-              />
-              <circle 
-                cx="50" 
-                cy="50" 
-                r="10" 
-                fill="currentColor"
-              />
+              {/* White circles at ear bases for classic look */}
+              <circle cx="25" cy="30" r="3" fill="#FFFFFF"/>
+              <circle cx="75" cy="30" r="3" fill="#FFFFFF"/>
             </svg>
           </Box>
 
