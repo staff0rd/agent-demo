@@ -1,136 +1,112 @@
 import React from 'react';
-import {
-  AppBar,
-  Box,
-  CssBaseline,
-  Drawer,
-  IconButton,
-  List,
-  ListItem,
-  ListItemButton,
-  ListItemIcon,
-  ListItemText,
-  Toolbar,
-  Typography,
-  useTheme,
-} from '@mui/material';
-import {
-  Menu as MenuIcon,
-  Dashboard,
-  Assessment,
-  Settings,
-} from '@mui/icons-material';
+import { Box, Container, Typography } from '@mui/material';
+import { keyframes } from '@mui/system';
 
-const drawerWidth = 240;
+// Define rotation animation
+const rotate = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+`;
 
 function App() {
-  const [mobileOpen, setMobileOpen] = React.useState(false);
-  const theme = useTheme();
-
-  const handleDrawerToggle = () => {
-    setMobileOpen(!mobileOpen);
-  };
-
-  const menuItems = [
-    { text: 'Dashboard', icon: <Dashboard />, path: '/' },
-    { text: 'Analytics', icon: <Assessment />, path: '/analytics' },
-    { text: 'Settings', icon: <Settings />, path: '/settings' },
-  ];
-
-  const drawer = (
-    <div>
-      <Toolbar />
-      <List>
-        {menuItems.map((item) => (
-          <ListItem key={item.text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>{item.icon}</ListItemIcon>
-              <ListItemText primary={item.text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
-    </div>
-  );
-
   return (
-    <Box sx={{ display: 'flex' }}>
-      <CssBaseline />
-      <AppBar
-        position="fixed"
+    <Container maxWidth={false} disableGutters>
+      <Box
         sx={{
-          width: { sm: `calc(100% - ${drawerWidth}px)` },
-          ml: { sm: `${drawerWidth}px` },
+          minHeight: '100vh',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          gap: 4,
+          py: 4,
+          px: 2,
         }}
       >
-        <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            edge="start"
-            onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: 'none' } }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" noWrap component="div">
-            Agent Demo
-          </Typography>
-        </Toolbar>
-      </AppBar>
-      <Box
-        component="nav"
-        sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
-      >
-        <Drawer
-          variant="temporary"
-          open={mobileOpen}
-          onClose={handleDrawerToggle}
-          ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
-          }}
-          sx={{
-            display: { xs: 'block', sm: 'none' },
-            '& .MuiDrawer-paper': {
-              boxSizing: 'border-box',
-              width: drawerWidth,
-            },
+        <Typography 
+          variant="h2" 
+          sx={{ 
+            writingMode: 'vertical-rl',
+            transform: 'rotate(180deg)',
+            textTransform: 'uppercase',
+            letterSpacing: '0.2em',
+            fontWeight: 'bold',
+            color: 'primary.main'
           }}
         >
-          {drawer}
-        </Drawer>
-        <Drawer
-          variant="permanent"
+          Agent
+        </Typography>
+
+        <Box
           sx={{
-            display: { xs: 'none', sm: 'block' },
-            '& .MuiDrawer-paper': {
-              boxSizing: 'border-box',
-              width: drawerWidth,
-            },
+            animation: `${rotate} 20s linear infinite`,
+            width: '300px',
+            height: '300px',
           }}
-          open
         >
-          {drawer}
-        </Drawer>
-      </Box>
-      <Box
-        component="main"
-        sx={{
-          flexGrow: 1,
-          p: 3,
-          width: { sm: `calc(100% - ${drawerWidth}px)` },
-        }}
-      >
-        <Toolbar />
-        <Typography paragraph>
-          Welcome to the Agent Demo application. This is a professional dashboard layout
-          built with Material-UI, featuring a responsive drawer and app bar.
+          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            {/* Outer ring */}
+            <circle 
+              cx="50" 
+              cy="50" 
+              r="45" 
+              fill="none" 
+              stroke="currentColor" 
+              strokeWidth="1"
+              vectorEffect="non-scaling-stroke"
+            />
+            
+            {/* Inner patterns */}
+            <g opacity="0.7">
+              {[0, 60, 120].map((rotation) => (
+                <path
+                  key={rotation}
+                  d="M50 5 L95 50 L50 95 L5 50 Z"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="0.5"
+                  vectorEffect="non-scaling-stroke"
+                  transform={`rotate(${rotation}, 50, 50)`}
+                />
+              ))}
+            </g>
+            
+            {/* Center elements */}
+            <circle 
+              cx="50" 
+              cy="50" 
+              r="25" 
+              fill="none" 
+              stroke="currentColor"
+              strokeWidth="0.75"
+              vectorEffect="non-scaling-stroke"
+            />
+            <circle 
+              cx="50" 
+              cy="50" 
+              r="10" 
+              fill="currentColor"
+            />
+          </svg>
+        </Box>
+
+        <Typography 
+          variant="h2" 
+          sx={{ 
+            writingMode: 'vertical-rl',
+            textTransform: 'uppercase',
+            letterSpacing: '0.2em',
+            fontWeight: 'bold',
+            color: 'primary.main'
+          }}
+        >
+          Demo
         </Typography>
-        <Typography paragraph>
-          Select an option from the menu to get started.
-        </Typography>
       </Box>
-    </Box>
+    </Container>
   );
 }
 
