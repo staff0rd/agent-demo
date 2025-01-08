@@ -4,17 +4,16 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import App from './App';
 
-// Create a theme instance
+// Create a dark theme
 const theme = createTheme({
   palette: {
+    mode: 'dark',
     primary: {
-      main: '#1976d2',
-    },
-    secondary: {
-      main: '#dc004e',
+      main: '#90caf9',  // A lighter blue for dark mode
     },
     background: {
-      default: '#f5f5f5',
+      default: '#0a1929', // A deep blue-black
+      paper: '#0a1929',
     },
   },
   typography: {
@@ -26,10 +25,34 @@ const theme = createTheme({
       '"Helvetica Neue"',
       'Arial',
       'sans-serif',
-      '"Apple Color Emoji"',
-      '"Segoe UI Emoji"',
-      '"Segoe UI Symbol"',
     ].join(','),
+    h2: {
+      fontSize: '2.5rem',
+      '@media (min-width:600px)': {
+        fontSize: '4rem',
+      },
+    },
+  },
+  components: {
+    MuiCssBaseline: {
+      styleOverrides: {
+        body: {
+          scrollbarColor: "#6b6b6b #2b2b2b",
+          "&::-webkit-scrollbar, & *::-webkit-scrollbar": {
+            backgroundColor: "#2b2b2b",
+          },
+          "&::-webkit-scrollbar-thumb, & *::-webkit-scrollbar-thumb": {
+            borderRadius: 8,
+            backgroundColor: "#6b6b6b",
+            minHeight: 24,
+            border: "3px solid #2b2b2b",
+          },
+          "&::-webkit-scrollbar-thumb:focus, & *::-webkit-scrollbar-thumb:focus": {
+            backgroundColor: "#959595",
+          },
+        },
+      },
+    },
   },
 });
 
