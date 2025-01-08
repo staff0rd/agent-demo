@@ -1,5 +1,5 @@
 import '@testing-library/jest-dom';
-import { vi, expect, afterEach } from 'vitest';
+import { vi, afterEach } from 'vitest';
 import { cleanup } from '@testing-library/react';
 
 // Mock fetch globally
