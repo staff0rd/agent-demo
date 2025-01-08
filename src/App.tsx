@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box, Container, Typography } from '@mui/material';
 import { keyframes } from '@mui/system';
+import DogFact from './components/DogFact';
 
 const rotate = keyframes`
   from {
@@ -105,19 +106,7 @@ function App() {
           </Typography>
         </Box>
         
-        <Typography 
-          variant="h5" 
-          sx={{ 
-            color: 'primary.main',
-            opacity: 0.8,
-            textAlign: 'center',
-            maxWidth: '600px',
-            mt: 4
-          }}
-        >
-          Testing the auto-update workflow with this new message.
-          If you see this text, the webhook-based updates are working! 🎉
-        </Typography>
+        <DogFact />
       </Box>
     </Container>
   );
