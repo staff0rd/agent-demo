@@ -1,20 +1,22 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { vi } from 'vitest';
+import { describe, it, expect, beforeEach, vi } from 'vitest';
 import DogFact from './DogFact';
 
-const mockFetch = (fact: string) =>
-  vi.mocked(fetch).mockResolvedValueOnce({
-    ok: true,
-    json: () => Promise.resolve({ facts: [fact] }),
-  } as unknown as Response);
-
 describe('DogFact', () => {
+  const mockFetch = (fact: string) =>
+    vi.mocked(fetch).mockResolvedValueOnce({
+      ok: true,
+      json: () => Promise.resolve({ facts: [fact] }),
+    } as unknown as Response);
+
   beforeEach(() => {
     vi.resetAllMocks();
   });
 
   it('fetches and displays a new fact when the button is clicked', async () => {
+    const user = userEvent.setup();
+    
     // Mock initial fetch
     mockFetch('Initial dog fact');
     
@@ -22,16 +24,21 @@ describe('DogFact', () => {
     render(<DogFact />);
     
     // Wait for initial fact to load
-    await screen.findByText('Initial dog fact');
+    await waitFor(() => {
+      expect(screen.getByText('Initial dog fact')).toBeInTheDocument();
+    });
     
     // Mock next fetch with different fact
     mockFetch('New dog fact');
     
     // Click the button
-    await userEvent.click(screen.getByRole('button', { name: /fetch new fact/i }));
+    const button = screen.getByRole('button', { name: /fetch new fact/i });
+    await user.click(button);
     
     // Verify new fact is displayed
-    await screen.findByText('New dog fact');
+    await waitFor(() => {
+      expect(screen.getByText('New dog fact')).toBeInTheDocument();
+    });
     
     // Verify fetch was called twice (initial + button click)
     expect(fetch).toHaveBeenCalledTimes(2);
