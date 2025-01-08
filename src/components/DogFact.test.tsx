@@ -1,6 +1,7 @@
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, it, expect, beforeEach, vi } from 'vitest';
+import { act } from '@testing-library/react';
 import DogFact from './DogFact';
 
 describe('DogFact', () => {
@@ -20,8 +21,9 @@ describe('DogFact', () => {
     // Mock initial fetch
     mockFetch('Initial dog fact');
     
-    // Render component
-    render(<DogFact />);
+    await act(async () => {
+      render(<DogFact />);
+    });
     
     // Wait for initial fact to load
     await waitFor(() => {
@@ -31,11 +33,13 @@ describe('DogFact', () => {
     // Mock next fetch with different fact
     mockFetch('New dog fact');
     
-    // Click the button
+    // Click the button and wait for effects
     const button = screen.getByRole('button', { name: /fetch new fact/i });
-    await user.click(button);
+    await act(async () => {
+      await user.click(button);
+    });
     
-    // Verify new fact is displayed
+    // Wait for fetch and state updates to complete
     await waitFor(() => {
       expect(screen.getByText('New dog fact')).toBeInTheDocument();
     });
